@@ -1,7 +1,6 @@
-package com.pecodigos.forumhub.topics.entity;
+package com.pecodigos.forumhub.comments.entity;
 
-import com.pecodigos.forumhub.comments.entity.Comment;
-import com.pecodigos.forumhub.topics.enums.TopicState;
+import com.pecodigos.forumhub.topics.entity.Topic;
 import com.pecodigos.forumhub.users.entity.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,31 +11,26 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "topics")
-public class Topic {
+@Table(name = "comments")
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
     private String content;
-
-    @Enumerated(EnumType.STRING)
-    private TopicState state;
 
     @ManyToOne
     private User user;
 
-    @OneToMany
-    private List<Comment> comments;
+    @ManyToOne
+    private Topic topic;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

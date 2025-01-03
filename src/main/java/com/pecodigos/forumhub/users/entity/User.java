@@ -1,5 +1,6 @@
 package com.pecodigos.forumhub.users.entity;
 
+import com.pecodigos.forumhub.comments.entity.Comment;
 import com.pecodigos.forumhub.topics.entity.Topic;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -35,6 +36,9 @@ public class User {
 
     @OneToMany
     private List<Topic> topics;
+
+    @OneToMany
+    private List<Comment> comments;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

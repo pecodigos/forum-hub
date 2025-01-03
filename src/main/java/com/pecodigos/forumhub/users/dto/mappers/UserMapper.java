@@ -7,7 +7,6 @@ import org.mapstruct.Mapping;
 
 @Mapper
 public interface UserMapper {
-
     @Mapping(source = "username", target = "username")
     @Mapping(source = "email", target = "email")
     UserResponseDTO toResponseDTO(User user);

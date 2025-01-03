@@ -18,4 +18,5 @@ public class MapperConfig {
     public TopicMapper topicMapper() {
         return Mappers.getMapper(TopicMapper.class);
     }
+
 }
